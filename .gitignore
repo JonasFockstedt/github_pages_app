@@ -44,4 +44,3 @@ Thumbs.db
 # From building app
 personal-website/.angular/*
 personal-website/dist/*
-personal-website/node_modules/*
