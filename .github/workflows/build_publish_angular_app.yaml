@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  Build-app:
+  Build-and-deploy:
+    concurrency: ci-${{ github.ref }} # For making multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
