@@ -18,13 +18,15 @@ jobs:
 
       - name: Install dependencies
         run:  |
-          (cd personal-website && npm install)
+          cd personal-website
+          npm ci
+          npm install
 
       - name: Build app
-        run: (cd personal-website && npm run build)
+        run: npm run build
 
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4.3.3
-      #   with:
-      #     branch: main # The branch the action should deploy to.
-      #     folder: docs/github_pages_app/personal-website # The folder the action should deploy.
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: main # The branch the action should deploy to.
+          folder: personal-website # The folder the action should deploy.
