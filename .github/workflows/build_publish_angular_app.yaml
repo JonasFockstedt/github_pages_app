@@ -1,0 +1,29 @@
+name: 'Build and Publish Angular App'
+
+on:
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  Build-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run:  |
+          (cd personal-website && npm install)
+
+      - name: Build app
+        run: (cd personal-website && npm run build)
+
+      # - name: Deploy 🚀
+      #   uses: JamesIves/github-pages-deploy-action@v4.3.3
+      #   with:
+      #     branch: main # The branch the action should deploy to.
+      #     folder: docs/github_pages_app/personal-website # The folder the action should deploy.
